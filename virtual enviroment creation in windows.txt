@@ -1,0 +1,9 @@
+steps to create virtual environment on windows
+
+1) pip instal virtualenv
+2) create a folder where u want to create the virtual environment 
+3) open that folder path in cmd
+4) create virtual environment by command --> virtualenv <name of the enviroment>
+5) cd to that environment <name of the enviroment>
+6) run command --> scripts\activate
+7) voila you have your virtual enviroment
