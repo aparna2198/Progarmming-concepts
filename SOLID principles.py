@@ -21,7 +21,7 @@ class Order:
     def total_price(self):
         total = 0
         for i in range(len(self.prices)):
-        total +=self.quantities[i]*self.prices[i]
+            total +=self.quantities[i]*self.prices[i]
         return total
 
 
@@ -30,7 +30,7 @@ class Authorizer(ABC):
 
     @abstractmethod
     def is_authorized(self):
-    pass
+        pass
 
 class SMSAuth(Authorizer):
     authorized = False
@@ -65,7 +65,7 @@ class PaymentProcessor_sms(PaymentProcessor):
         pass
 
 
-class credit_pay(PaymentProcessor):
+class credit_pay(PaymentProcessor_sms):
     def __init__(self,security_code):
         self.security_code = security_code
     
@@ -74,15 +74,19 @@ class credit_pay(PaymentProcessor):
         print(f"Verifying security code:{self.security_code}")
         order.status = "paid"
 
-class debit_pay(PaymentProcessor):
-    def __init__(self,security_code,authorizer : SMSAuth):
+class debit_pay(PaymentProcessor_sms):
+    def __init__(self,security_code,authorizer : NotARobot):
         self.security_code = security_code
         self.authorizer = authorizer
     
+    def auth_sms(self,code):
+        self.verified = True
+        return self.verified 
+        
+        
     def pay(self,order):
-        if not self.authorizer.is_authorized():
-        print("hall")
-        raise Exception("Not Authorized")
+        if not self.auth_sms("cd"):
+            raise Exception("Not Authorized")
         print("processing debit payment type")
         print(f"Verifying security code:{self.security_code}")
         order.status = "paid"
@@ -94,7 +98,7 @@ class paypal_pay(PaymentProcessor):
     
     def pay(self,order):
         if not self.authorizer.is_authorized():
-        raise Exception ("Not Authorized")
+            raise Exception ("Not Authorized")
         print("processing debit payment type")
         print(f"Verifying email:{self.email}")
         order.status = "paid"
