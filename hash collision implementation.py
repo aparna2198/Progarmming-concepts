@@ -51,6 +51,9 @@ print(ob['march 17'])
 del ob['march 17']
 print(ob['march 17'])
 
+del ob['march 9']
+print(ob['march 17'])
+
 
 
 
