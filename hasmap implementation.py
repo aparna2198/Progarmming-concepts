@@ -27,7 +27,7 @@ class Hashtable:
         h = 0
         for c in key:
             h+=ord(c)
-        print(h%self.max)
+        
         return h%self.max
     
     def __getitem__(self,key):
@@ -43,18 +43,18 @@ ob  = Hashtable()
 ob['a'] = 1
 ob['b'] = 2
 
-print(ob.arr)
+# print(ob.arr)
 
-print(ob['c'])
+# print(ob['c'])
 
 # collision problem
 # ob = Hashtable()
 
-# ob['march 6'] = 100
-# ob['march 17'] = 101
+ob['march 6'] = 100
+ob['march 17'] = 101
 
-# print(ob['march 6'])
-# print(ob['march 17'])
+print(ob['march 6'])
+print(ob['march 17'])
 
         
     
