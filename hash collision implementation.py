@@ -4,7 +4,7 @@ Created on Sun Jan 16 22:44:28 2022
 
 @author: APARNA
 """
-
+# this is just to play with git commits 
 # chaining to resolve collision
 class HashTable:
     
