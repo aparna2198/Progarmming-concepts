@@ -1,60 +1,60 @@
 import asyncio
-# # coroutines
-# # they are computer program components that generalize subroutines for non preemptive multitasking by allowing execution to be suspended and resumed
+# coroutines
+# they are computer program components that generalize subroutines for non preemptive multitasking by allowing execution to be suspended and resumed
 
-# async def main():
-#     print("main func")
-#     await func("awaiting...")
-#     print("done")
+async def main():
+    print("main func")
+    await func("awaiting...")
+    print("done")
 
-# async def func(text):
-#     print(text)
-#     await asyncio.sleep(1)
-# # event loop is a programming construct or design pattern that waits for and dispatches events or messages in a program.
+async def func(text):
+    print(text)
+    await asyncio.sleep(1)
+# event loop is a programming construct or design pattern that waits for and dispatches events or messages in a program.
 
-# asyncio.run(main())
-# # output: 
-# # main func
-# # awaiting...
-# # done
+asyncio.run(main())
+# output: 
+# main func
+# awaiting...
+# done
 
-# # do something when sleep function is called
-# async def main():
-#     print("async method")
-#     task = asyncio.create_task(func("awaiting..."))
-#     # await task #this line will wait func to execute and wont go to next line 
-#     print("done")
+# do something when sleep function is called
+async def main():
+    print("async method")
+    task = asyncio.create_task(func("awaiting..."))
+    # await task #this line will wait func to execute and wont go to next line 
+    print("done")
 
-# async def func(text):
-#     print(text)
-#     await asyncio.sleep(1) 
+async def func(text):
+    print(text)
+    await asyncio.sleep(1) 
 
-# asyncio.run(main())
+asyncio.run(main())
 
-# # output:
-# # async method
-# # done
-# # awaiting...
+# output:
+# async method
+# done
+# awaiting...
 
-# # add delay in main function 
-# print("***** add delay in main function *******")
-# async def main():
-#     print("async method")
-#     task = asyncio.create_task(func("delays..."))
-#     await asyncio.sleep(0.1)
-#     print("done")
+# add delay in main function 
+print("***** add delay in main function *******")
+async def main():
+    print("async method")
+    task = asyncio.create_task(func("delays..."))
+    await asyncio.sleep(0.1)
+    print("done")
 
-# async def func(text):
-#     await asyncio.sleep(0.1) 
-#     print(text)
-#     await asyncio.sleep(10) 
+async def func(text):
+    await asyncio.sleep(0.1) 
+    print(text)
+    await asyncio.sleep(10) 
 
-# asyncio.run(main())
+asyncio.run(main())
 
-# # output:
-# # async method
-# # awaiting...
-# # done
+# output:
+# async method
+# awaiting...
+# done
 
 # understand core concept for asyncio
 
